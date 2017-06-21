@@ -1,0 +1,45 @@
+---
+title: "Developing Data products Week 4"
+author: "Kalpana Rupani"
+date: "June 18, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Fuel Efficiency - Best Model Exploration
+This application is intended show the relationship variables within a dataset have when developing a regression model. By adding and removing variables you can explore the coreletation and impact they have in the model.
+
+On the left side of the application you have options to:
+
+Use a subset of the data by adjusting the weight range
+Add and remove variables that will be used to determine the best model
+Ultimately the model should help you determine which variables are important for fuel efficiency. Subsetting the dataset shows the impact the sample has for determining the best model
+
+
+
+
+***
+App link: https://krupani.shinyapps.io/Score/
+
+
+***
+```{r}
+library(shiny)
+sliderInput("sliderMPG", "What is the MPG of the car?", 10, 35, value = 20)
+
+renderPlot({
+                plot(mtcars$mpg, mtcars$hp, xlab = "Miles Per Gallon",
+                     ylab = "Horsepower", bty = "n", pch = 16,
+                     xlim = c(10, 35), ylim = c(50, 350))
+                
+})
+
+```
+
+
+***
+
+Thank You!
